@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">recyclerexpandable</string>
+    <string name="apellido">Apellido</string>
+    <string name="nombre">Nombre</string>
+</resources>
