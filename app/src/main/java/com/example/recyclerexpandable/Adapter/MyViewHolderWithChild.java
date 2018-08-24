@@ -28,18 +28,7 @@ public class MyViewHolderWithChild extends RecyclerView.ViewHolder implements Vi
 
 
     String[] datos;
-
-
-
-
-
-
-
-
-
-
-
-
+    
     ItemClickListener itemClickListener;
 
 
@@ -49,11 +38,7 @@ public class MyViewHolderWithChild extends RecyclerView.ViewHolder implements Vi
         super(itemView);
 
         datos= new String[MyAdapter.items.size()];
-
-
-
-
-
+        
         // no se muestra
         textViewChild=itemView.findViewById(R.id.textViewChild);
 
@@ -89,10 +74,6 @@ public class MyViewHolderWithChild extends RecyclerView.ViewHolder implements Vi
 
             }
         });
-
-
-
-
 
 
         itemView.setOnClickListener(this);
