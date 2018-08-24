@@ -25,8 +25,6 @@ public class MyViewHolderWithChild extends RecyclerView.ViewHolder implements Vi
     public EditText nombre, apellido, dni;
     public RadioGroup radiogroupSexo;
 
-
-
     String[] datos;
     
     ItemClickListener itemClickListener;
@@ -63,8 +61,6 @@ public class MyViewHolderWithChild extends RecyclerView.ViewHolder implements Vi
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
                 datos[getAdapterPosition()]= s.toString();
-
-
 
 
             }
