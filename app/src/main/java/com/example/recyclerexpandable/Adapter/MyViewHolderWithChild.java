@@ -25,7 +25,7 @@ public class MyViewHolderWithChild extends RecyclerView.ViewHolder implements Vi
     public EditText nombre, apellido, dni;
     public RadioGroup radiogroupSexo;
 
-    String[] datos;
+
     
     ItemClickListener itemClickListener;
 
@@ -35,7 +35,7 @@ public class MyViewHolderWithChild extends RecyclerView.ViewHolder implements Vi
 
         super(itemView);
 
-        datos= new String[MyAdapter.items.size()];
+
         
         // no se muestra
         textViewChild=itemView.findViewById(R.id.textViewChild);
@@ -51,35 +51,12 @@ public class MyViewHolderWithChild extends RecyclerView.ViewHolder implements Vi
         dni=itemView.findViewById(R.id.numerodni);
         radiogroupSexo=(RadioGroup)itemView.findViewById(R.id.radiogroupsexo);
 
-        nombre.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-                datos[getAdapterPosition()]= s.toString();
-
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
-
-
         itemView.setOnClickListener(this);
 
 
     }
 
-    public String[] getDatos() {
-        return datos;
-    }
+
 
     public void setItemClickListener(ItemClickListener itemClickListener) {
         this.itemClickListener = itemClickListener;

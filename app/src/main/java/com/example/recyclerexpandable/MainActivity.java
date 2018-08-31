@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView.LayoutManager layoutManager;
     List<Item> items = new ArrayList<>();
     Button btncontinuar;
-    ListView lista;
+    //ListView lista;
 
 
     private static  final String TAG="edson";
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
         recycler.setLayoutManager(layoutManager);
 
-        lista=findViewById(R.id.lista);
+       // lista=findViewById(R.id.lista);
 
         setData();
 
@@ -70,21 +70,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
-
-
-
                 if (recycler.getChildCount() > 0) {
 
                     for (int i = 0; i < recycler.getChildCount(); i++) {
                         if (recycler.findViewHolderForLayoutPosition(i) instanceof MyViewHolderWithChild) {
                             MyViewHolderWithChild holders = (MyViewHolderWithChild) recycler.findViewHolderForLayoutPosition(i);
-                            // Toast.makeText(MainActivity.this, (i+1) + " Nombre:"+holders.nombre.getText()+ " Apellido: "+holders.apellido.getText() +
-                            //    " DNI:"+holders.dni.getText(), Toast.LENGTH_SHORT).show();
+                             Toast.makeText(MainActivity.this, (i+1) + " Nombre:"+holders.nombre.getText()+ " Apellido: "+holders.apellido.getText() +
+                                " DNI:"+holders.dni.getText(), Toast.LENGTH_SHORT).show();
 
 
 
-                            listapasj.add(holders.nombre.getText().toString());
+                           //listapasj.add(holders.nombre.getText().toString());
 
 
 
@@ -99,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-                listarpasajeros();
+                //listarpasajeros();
 
 
 
@@ -121,8 +117,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void listarpasajeros() {
 
-        ArrayAdapter<String> adaptador = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_expandable_list_item_1, listapasj);
-        lista.setAdapter(adaptador);
+        //ArrayAdapter<String> adaptador = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_expandable_list_item_1, listapasj);
+        //lista.setAdapter(adaptador);
     }
 
     private void setData() {
@@ -157,8 +153,10 @@ public class MainActivity extends AppCompatActivity {
                     Item item = new Item("PASAJERO " + (i + 1), "This is  child  item " + (i + 1), true, " ", " ", " ", true);
                     items.add(item);
 
+
                 }
 
 
             }
+
         }

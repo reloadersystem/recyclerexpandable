@@ -36,13 +36,6 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     //public static ArrayList<Item> listaid ;
 
 
-
-
-
-
-
-
-
     public MyAdapter(List<Item> items)
     {
 
@@ -56,8 +49,12 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         // sin expander  los demas  inidices
 
-        for(int  i=1; i<items.size();i++)
-            expandState.append(i, false);
+        /*for(int  i=1; i<items.size();i++)
+            expandState.append(i, false);*/
+
+
+
+
 
     }
 
@@ -76,6 +73,8 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @NonNull
     @Override
+
+    //crear la  vista  sin personalizar
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
 
@@ -99,6 +98,8 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     @Override
+    //perzonalizacion de la vista de cada  uno de los  elementos de la vista/ y la  posicion
+
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, final int position) {
 
         switch (holder.getItemViewType())
@@ -107,7 +108,7 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             {
                 MyViewHolderWithoutChild viewHolder=(MyViewHolderWithoutChild)holder;
                 Item item= items.get(position);
-                viewHolder.setIsRecyclable(false);
+                viewHolder.setIsRecyclable(true);
                 viewHolder.textView.setText(item.getText());
 
                 //hacer evento del click
@@ -124,11 +125,19 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
             case 1:
             {
-                final MyViewHolderWithChild viewHolder=(MyViewHolderWithChild)holder;
+
+                //personalizando
+               final MyViewHolderWithChild viewHolder=(MyViewHolderWithChild)holder;
+
+
                 Item item= items.get(position);
 
 
-                viewHolder.setIsRecyclable(false);
+                //hace  que los  datos  escritos en el viewholder no se  borren
+                viewHolder.setIsRecyclable(true);
+
+
+
                 viewHolder.textView.setText(item.getText());
                 viewHolder.apellido.setText(item.getApellido());
                 viewHolder.nombre.setText(item.getNombre());
@@ -185,6 +194,7 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
                 viewHolder.expandableLayout.setInRecyclerView(true);
                 viewHolder.expandableLayout.setExpanded(expandState.get(position));
+
                 viewHolder.expandableLayout.setListener(new ExpandableLayoutListenerAdapter() {
                     @Override
                     public void onAnimationStart() {
@@ -219,6 +229,9 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                     public void onClick(View v) {
                         //expandir  el item  hijo
                         viewHolder.expandableLayout.toggle();
+
+
+
 
 
                     }
